@@ -1,0 +1,81 @@
+<div class="card h-100 w-75 mx-auto mt-3">
+  <div class="card-header">
+    <h1>Random Password Generator</h1>
+  </div>
+  <div class="card-body ">
+    <form action="/" method="post">
+      <div class="row align-items-center">
+        <div class=" col-3">
+          <label for="Password Length">
+            <h5>Password Length</h5>
+          </label>
+        </div>
+        <div class=" col-8 "><input type="number" class=" col-12 " id="passwordLengthId" name="passwordLengthId" min='4'
+            max='16' value="" style="height:50px">
+          <div class="form-text col-10 ">Length is availabe between 4 ~ 16</div>
+          {{!-- 也可以使<small></small> --}}
+        </div>
+      </div>
+
+      <div class="row align-items-center mt-5">
+        <div class=" col-3">
+          <label for="Lowercase">
+            <h5>Include Lowercase Characters</h5>
+          </label>
+        </div>
+        <div class=" col-9"><input type="checkbox" id="Lowercase" name="Lowercase" style="transform: scale(2)"> <span
+            style="margin-left: 8px;">(e.g abcdefg)</span>
+        </div>
+      </div>
+
+      <div class="row align-items-center mt-5">
+        <div class=" col-3"><label for="Uppercase">
+            <h5>Include Uppercase Characters</h5>
+          </label>
+        </div>
+        <div class=" col-9"><input type="checkbox" id="Uppercase" name="Uppercase" style="transform: scale(2)"> <span
+            style="margin-left: 8px;">(e.g ABCDEFG)</span>
+        </div>
+      </div>
+
+      <div class="row align-items-center mt-5">
+        <div class=" col-3"><label for="Numbers">
+            <h5>Include Numbers</h5>
+          </label>
+        </div>
+        <div class=" col-9"><input type="checkbox" id="Numbers" name="Numbers" style="transform: scale(2)"> <span
+            style="margin-left: 8px;">(e.g 123456)</span>
+        </div>
+      </div>
+
+      <div class="row align-items-center mt-5">
+        <div class=" col-3"><label for="Symbols">
+            <h5>Include Symbols</h5>
+          </label>
+        </div>
+        <div class=" col-9"><input type="checkbox" id="Symbols" name="Symbols" style="transform: scale(2)"> <span
+            style="margin-left: 8px;">(e.g .@#$%^)</span>
+        </div>
+      </div>
+
+      <div class="row align-items-center mt-5">
+        <div class=" col-3"><label for="excludeCharacters">
+            <h5>Exclude Characters</h5>
+          </label></div>
+        <div class=" col-8 "><input class=" col-12 " id="excludeCharacters" name="excludeCharacters" value=""
+            style="height:50px">
+          <div class="form-text col-10 ">These characters will not appear in the password</div>
+        </div>
+      </div>
+      {{!-- <div class="alert alert-primary" role="alert">
+        A simple primary alert—check it out!
+      </div> --}}
+      <button id='submitBtn' class='btn btn-success' type="submit">Generate</button>
+      <div class='card-footer text-end mt-3'>
+        <h6>Idea is inspired by
+          <a href='/' class='text-decoration-none'>Strong Random Password</a>
+        </h6>
+    </form>
+  </div>
+
+</div>
