@@ -4,7 +4,7 @@ This website is created using Node.js and Express.js. Users can generate a rando
 
 
 
-![gif](https://github.com/TheyCallMeAndyBro/RandomPassword/blob/main/Gif.gif)
+![Demo](https://github.com/TheyCallMeAndyBro/RandomPassword/blob/main/Demo.gif)
 
 
 
