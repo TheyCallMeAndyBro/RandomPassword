@@ -3,16 +3,16 @@
     <h1>Random Password Generator</h1>
   </div>
   <div class="card-body ">
-    <form action="/" method="post">
+    <form action="/" method="POST" id="RPform">
       <div class="row align-items-center">
         <div class=" col-3">
-          <label for="Password Length">
+          <label for="passwordLengthId">
             <h5>Password Length</h5>
           </label>
         </div>
         <div class=" col-8 "><input type="number" class=" col-12 " id="passwordLengthId" name="passwordLengthId" min='4'
-            max='16' value="" style="height:50px">
-          <div class="form-text col-10 ">Length is availabe between 4 ~ 16</div>
+            max='16' style="height:50px" required>
+          <div class="form-text col-10 " value="{{#if data.passwordLengthId}}{{data.passwordLengthId}}{{/if}}">Length is availabe between 4 ~ 16</div>
           {{!-- 也可以使<small></small> --}}
         </div>
       </div>
@@ -23,8 +23,9 @@
             <h5>Include Lowercase Characters</h5>
           </label>
         </div>
-        <div class=" col-9"><input type="checkbox" id="Lowercase" name="Lowercase" style="transform: scale(2)"> <span
-            style="margin-left: 8px;">(e.g abcdefg)</span>
+        {{!-- value決定回傳回去的值如果不設定預設勾選回傳值為 'on' --}}
+        <div class=" col-9"><input type="checkbox" id="Lowercase" name="Lowercase" style="transform: scale(2)"
+            value="active" {{#if data.Lowercase}}checked{{/if}}> <span style="margin-left: 8px;">(e.g abcdefg)</span>
         </div>
       </div>
 
@@ -33,8 +34,8 @@
             <h5>Include Uppercase Characters</h5>
           </label>
         </div>
-        <div class=" col-9"><input type="checkbox" id="Uppercase" name="Uppercase" style="transform: scale(2)"> <span
-            style="margin-left: 8px;">(e.g ABCDEFG)</span>
+        <div class=" col-9"><input type="checkbox" id="Uppercase" name="Uppercase" style="transform: scale(2)"
+            value="active" {{#if data.Uppercase}}checked{{/if}}> <span style="margin-left: 8px;">(e.g ABCDEFG)</span>
         </div>
       </div>
 
@@ -43,8 +44,8 @@
             <h5>Include Numbers</h5>
           </label>
         </div>
-        <div class=" col-9"><input type="checkbox" id="Numbers" name="Numbers" style="transform: scale(2)"> <span
-            style="margin-left: 8px;">(e.g 123456)</span>
+        <div class=" col-9"><input type="checkbox" id="Numbers" name="Numbers" style="transform: scale(2)"
+            value="active" {{#if data.Numbers}}checked{{/if}}> <span style="margin-left: 8px;">(e.g 123456)</span>
         </div>
       </div>
 
@@ -53,8 +54,8 @@
             <h5>Include Symbols</h5>
           </label>
         </div>
-        <div class=" col-9"><input type="checkbox" id="Symbols" name="Symbols" style="transform: scale(2)"> <span
-            style="margin-left: 8px;">(e.g .@#$%^)</span>
+        <div class=" col-9"><input type="checkbox" id="Symbols" name="Symbols" style="transform: scale(2)"
+            value="active" {{#if data.Symbols}}checked{{/if}}> <span style="margin-left: 8px;">(e.g ~`!@#$%^&*()_+-={}[]|\;"<>,.?/)</span>
         </div>
       </div>
 
@@ -62,15 +63,30 @@
         <div class=" col-3"><label for="excludeCharacters">
             <h5>Exclude Characters</h5>
           </label></div>
-        <div class=" col-8 "><input class=" col-12 " id="excludeCharacters" name="excludeCharacters" value=""
+        <div class=" col-8 "><input class=" col-12 " id="excludeCharacters" name="excludeCharacters" value="{{#if data.excludeCharacters}}{{data.excludeCharacters}}{{/if}}"
             style="height:50px">
           <div class="form-text col-10 ">These characters will not appear in the password</div>
         </div>
       </div>
-      {{!-- <div class="alert alert-primary" role="alert">
-        A simple primary alert—check it out!
-      </div> --}}
-      <button id='submitBtn' class='btn btn-success' type="submit">Generate</button>
+      {{#if RandomPassWord}}
+      <div class="alert alert-success" role="alert">
+        Your Password: <h5 id="Password">{{RandomPassWord}}</h5>
+      </div>
+      <button type="button" class="btn btn-primary " onclick="copy()">Copy</button>
+      <script>
+        function copy() {   //插入js語法 添加copy功能
+          const Password = document.querySelector("#Password")
+          navigator.clipboard.writeText(Password.innerText)
+            .then(() => alert("複製成功"))
+            .catch((err) => {
+              console.error(err);
+            })
+        }
+      </script>
+       {{else}} <button id='submitBtn' class='btn btn-success' type="submit">Generate</button>
+
+      {{/if}}
+
       <div class='card-footer text-end mt-3'>
         <h6>Idea is inspired by
           <a href='/' class='text-decoration-none'>Strong Random Password</a>
