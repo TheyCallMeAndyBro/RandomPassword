@@ -68,9 +68,9 @@
           <div class="form-text col-10 ">These characters will not appear in the password</div>
         </div>
       </div>
-      {{#if RandomPassWord}}
+     {{#if RandomPassWord}}
       <div class="alert alert-success" role="alert">
-        Your Password: <h5 id="Password">{{RandomPassWord}}</h5>
+        Your Password: <h5 id="Password" style="display: inline; color: rgb(224, 45, 209);">{{RandomPassWord}}</h5>
       </div>
       <button type="button" class="btn btn-primary " onclick="copy()">Copy</button>
       <script>
@@ -83,15 +83,12 @@
             })
         }
       </script>
-       {{else}} <button id='submitBtn' class='btn btn-success' type="submit">Generate</button>
-
       {{/if}}
-
+      <button id='submitBtn' class='btn btn-success' type="submit">Generate</button>
       <div class='card-footer text-end mt-3'>
         <h6>Idea is inspired by
           <a href='/' class='text-decoration-none'>Strong Random Password</a>
         </h6>
     </form>
   </div>
-
 </div>
