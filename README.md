@@ -3,6 +3,7 @@
 This website is created using Node.js and Express.js. Users can generate a random password by specifying its length and selecting options like lowercase, uppercase, numbers, symbols, and excluding certain characters. Once a password is successfully generated, users can click the 'Copy' button to copy it. To return to the homepage, simply click 'Strong Random Password' link in the lower right corner.Hope you can have a great user experience!
 
 
+![Uploading Recording 2023-10-11 at 13.08.50.gif…]()
 
 
 
