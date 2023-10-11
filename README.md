@@ -18,12 +18,12 @@ This website is created using Node.js and Express.js. Users can generate a rando
 
 1.Clone the repository
 ```
-git clone https://github.com/TheyCallMeAndyBro/URL_Shortener.git
+git clone https://github.com/TheyCallMeAndyBro/RandomPassword.git
 ```
 
 2.Move to file
 ```
-cd URL_Shortener
+cd RandomPasswordGenerator
 ```
 
 3.Install npm packages
